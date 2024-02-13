@@ -81,8 +81,8 @@ function tick() {
     }
     else {
         if (interval) clearInterval(interval);
-        alert("时间到了游戏结束!");
-        if (confirm("是否重新再来一局?")) {
+        alert("Time's up and game over!");
+        if (confirm("Start over?")) {
             startNewGame();
         }
     }
@@ -248,8 +248,8 @@ function onMouseClick(event) {
         }
         if (endGame) {
             if (interval) clearInterval(interval);
-            alert("时间到了游戏结束!");
-            if (confirm("是否重新再来一局?")) {
+            alert("Time's up!");
+            if (confirm("Start over?")) {
                 startNewGame();
             }
         }
@@ -280,7 +280,7 @@ function draw() {
         canvas.addEventListener("mousedown", onMouseClick, false);
     }
     else {
-        alert("获取Canvas对象失败！");
+        alert("Failed to obtain Canvas object!");
     }
 }
 
@@ -302,14 +302,14 @@ function handleKeydown(e) {
         case "SoftLeft":
             if (isStop) {
                 $('#mask').hide();
-                $('#softkey-left').text('暂停');
+                $('#softkey-left').text('Pause');
                 init();
                 stopTime = 0;
                 isStop = false;
             }
             else {
                 $('#mask').show();
-                $('#softkey-left').text('恢复');
+                $('#softkey-left').text('Reset');
                 if (interval)
                     clearInterval(interval);
                 stopTime = availableTime;
@@ -355,7 +355,7 @@ function handleKeydown(e) {
             }
             break;
         case 'Backspace':
-            if (confirm('是否退出?'))
+            if (confirm('Exit?'))
                 window.close();
             break;
     }
